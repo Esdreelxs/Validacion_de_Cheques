@@ -1,9 +1,7 @@
 import csv
+import time
 
 dniUsuario=input("Ingrese su dni: ")
-
-impresion=input("Desea imprimir los datos en pantalla(Ingrese 1)/archivo CSV(Ingrese 2): ")
-
 
 listasUsuario = []
 cheques= []
@@ -30,11 +28,19 @@ for n in cheques:
     else:
         repetidos.append(n)
 
+#Fecha de impresion
+def tiempoImpresion():
+    fecha=time.strftime("%H:%M:%S")
+    hora=time.strftime("%d/%m/%y")
+
 
 #Creo un condicional para imprimir en pantalla o en un archivo csv, segun dese el usuario
+#Impresion en pantalla
 
-if(impresion==1):
+
+
     #Condicional para que si no hay ningun numero repetido se ejecute el codigo
+def impresoinPantalla():
     if(len(repetidos)==0):
         for i in range(len(listasUsuario)+len(usuario)-len(listasUsuario)):
             datos= usuario[i]
@@ -42,8 +48,25 @@ if(impresion==1):
     else:
         print("ERROR: Existe mas de un cheque identico")
 
+def impresionCSV():
+    print(listasUsuario)
+    archivo = open("dinosaurio.csv", "w", newline='')
+    spamreader = csv.writer(archivo)
+    spamreader.writerow(listasUsuario)
+    archivo.close()   
+
+
+impresion =int(input("Desea imprimir los datos en pantalla(Ingrese 1)/archivo CSV(Ingrese 2): "))
+
+if(impresion==1):
+    impresoinPantalla
+
 if(impresion==2):
-    
+    impresionCSV 
+
+else:print("ERROR")
+
+
 
 
 
