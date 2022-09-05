@@ -24,11 +24,7 @@ rango_fecha=sys.argv[6]
 #Filtrado de cheques
 #filtrados por el estado depositado o emitido
 cheque_filtrado = []
-# Los cheques filtrados por el estado 
-cheque_estado = []  
 
-
-entrada=""
 listaUsuario=[] 
  
 #Guarda archivos csv
